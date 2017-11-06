@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 	nextButton: {
 		backgroundColor: 'rgb(0, 0, 0)',
 		borderRadius: 8,
-		marginTop: 24,
+		marginVertical: 24,
 	},
 	nextButtonText: {
 		lineHeight: 48,
@@ -65,7 +65,7 @@ export default class WhatsNew extends PureComponent { // eslint-disable-line
 				<FlatList
 					data={data}
 					keyExtractor={(__, index) => `feature_${index}`}
-					style={[styles.list, { width, height: height - 48 - 34 - 24 - 24 - 48 - 24 - 24 - 24 }]}
+					style={[styles.list, { width, height }]}
 					renderItem={({ item }) => (
 						<View style={styles.listItem}>
 							<Text style={styles.listItemTitle}>{item.title}</Text>
