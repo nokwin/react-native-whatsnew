@@ -8,9 +8,9 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		position: 'absolute',
 		top: 0,
-		right: 0,
-		bottom: 0,
 		left: 0,
+		zIndex: 10,
+		backgroundColor: 'rgb(255, 255, 255)'
 	},
 	titleText: {
 		fontSize: 34,
