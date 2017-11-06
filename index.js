@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default class WhatsNew extends PureComponent { // eslint-disable-line
+export default class WhatsNew extends PureComponent {
 	static propTypes = {
 		data: PropTypes.arrayOf(PropTypes.shape({
 			title: PropTypes.string.isRequired,
