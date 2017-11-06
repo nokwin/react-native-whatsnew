@@ -5,5 +5,10 @@
   "main": "index.js",
   "repository": "git@github.com:nokwin/react-native-whatsnew.git",
   "author": "Dmytro Batarin <dmytro.jr@batarin.zp.ua>",
-  "license": "MIT"
+  "license": "MIT",
+  "peerDependencies": {
+    "prop-types": "15.6.0",
+    "react": "16.0.0-beta.5",
+    "react-native": "0.49.3"
+  }
 }
