@@ -1,5 +1,7 @@
 # react-native-whatsnew
 
+<p align="center"><img src ="example.png" width="300px"/></p>
+
 ## Description
 WhatsNew automatically displays a short description of the new features when users update your app. This is similar to what happens in Apple's apps like Pages, Numbers, Keynote, iMovie and TestFlight.
 
