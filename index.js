@@ -60,7 +60,7 @@ export default class WhatsNew extends PureComponent { // eslint-disable-line
 		const { width, height } = Dimensions.get('window');
 
 		return (
-			<View style={styles.container}>
+			<View style={[styles.container, { height }]}>
 				<Text style={styles.titleText}>What&apos;s New</Text>
 				<FlatList
 					data={data}
