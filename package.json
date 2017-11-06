@@ -1,0 +1,9 @@
+{
+  "name": "react-native-whatsnew",
+  "version": "0.0.0",
+  "description": "Showcase new features after an app update similar to Pages, Numbers and Keynote.",
+  "main": "index.js",
+  "repository": "git@github.com:nokwin/react-native-whatsnew.git",
+  "author": "Dmytro Batarin <dmytro.jr@batarin.zp.ua>",
+  "license": "MIT"
+}
