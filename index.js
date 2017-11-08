@@ -61,7 +61,9 @@ export default class WhatsNew extends PureComponent {
 		listItemTextStyle: Animated.Text.propTypes.style,
 		buttonStyle: Animated.View.propTypes.style,
 		buttonTextStyle: Animated.Text.propTypes.style,
-		isAnimated: PropTypes.bool
+		isAnimated: PropTypes.bool,
+		titleText: PropTypes.string,
+		buttonText: PropTypes.string
 	};
 
 	static defaultProps = {
@@ -74,7 +76,9 @@ export default class WhatsNew extends PureComponent {
 		listItemTextStyle: null,
 		buttonStyle: null,
 		buttonTextStyle: null,
-		isAnimated: false
+		isAnimated: false,
+		titleText: 'What\'s new',
+		buttonText: 'Continue'
 	};
 
 	render() {
@@ -89,7 +93,9 @@ export default class WhatsNew extends PureComponent {
 			listItemTextStyle,
 			buttonStyle,
 			buttonTextStyle,
-			isAnimated
+			isAnimated,
+			titleText,
+			buttonText
 		} = this.props;
 		const { width, height } = Dimensions.get('window');
 
@@ -98,7 +104,7 @@ export default class WhatsNew extends PureComponent {
 
 		return (
 			<WNView style={[styles.container, { height }, containerStyle]}>
-				<WNText style={[styles.titleText, titleStyle]}>What&apos;s New</WNText>
+				<WNText style={[styles.titleText, titleStyle]}>{titleText}</WNText>
 				<FlatList
 					data={data}
 					keyExtractor={(__, index) => `feature_${index}`}
@@ -112,7 +118,7 @@ export default class WhatsNew extends PureComponent {
 				/>
 				<TouchableWithoutFeedback onPress={onPress}>
 					<WNView style={[styles.nextButton, buttonStyle]}>
-						<WNText style={[styles.nextButtonText, { width: width - 32 }, buttonTextStyle]}>Continue</WNText>
+						<WNText style={[styles.nextButtonText, { width: width - 32 }, buttonTextStyle]}>{buttonText}</WNText>
 					</WNView>
 				</TouchableWithoutFeedback>
 			</WNView>
