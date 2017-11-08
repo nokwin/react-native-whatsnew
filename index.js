@@ -48,31 +48,32 @@ const styles = StyleSheet.create({
 
 export default class WhatsNew extends PureComponent {
 	static propTypes = {
+		onPress: PropTypes.func.isRequired,
 		data: PropTypes.arrayOf(PropTypes.shape({
 			title: PropTypes.string.isRequired,
 			text: PropTypes.string.isRequired,
-		})).isRequired,
-		onPress: PropTypes.func.isRequired,
+		})),
 		containerStyle: View.propTypes.style,
 		titleStyle: Text.propTypes.style,
 		listStyle: FlatList.propTypes.style,
-		listItem: View.propTypes.style,
-		listItemTitle: Text.propTypes.style,
-		listItemText: Text.propTypes.style,
+		listItemStyle: View.propTypes.style,
+		listItemTitleStyle: Text.propTypes.style,
+		listItemTextStyle: Text.propTypes.style,
 		buttonStyle: View.propTypes.style,
 		buttonTextStyle: Text.propTypes.style
 	};
 
 	static defaultProps = {
+		data: [],
 		containerStyle: null,
 		titleStyle: null,
 		listStyle: null,
-		listItem: null,
-		listItemTitle: null,
-		listItemText: null,
+		listItemStyle: null,
+		listItemTitleStyle: null,
+		listItemTextStyle: null,
 		buttonStyle: null,
 		buttonTextStyle: null
-	}
+	};
 
 	render() {
 		const {
@@ -81,9 +82,9 @@ export default class WhatsNew extends PureComponent {
 			containerStyle,
 			titleStyle,
 			listStyle,
-			listItem,
-			listItemTitle,
-			listItemText,
+			listItemStyle,
+			listItemTitleStyle,
+			listItemTextStyle,
 			buttonStyle,
 			buttonTextStyle
 		} = this.props;
@@ -97,9 +98,9 @@ export default class WhatsNew extends PureComponent {
 					keyExtractor={(__, index) => `feature_${index}`}
 					style={[styles.list, { width, height }, listStyle]}
 					renderItem={({ item }) => (
-						<View style={[styles.listItem, listItem]}>
-							<Text style={[styles.listItemTitle, listItemTitle]}>{item.title}</Text>
-							<Text style={[styles.listItemText, listItemText]}>{item.text}</Text>
+						<View style={[styles.listItemStyle, listItemStyle]}>
+							<Text style={[styles.listItemTitleStyle, listItemTitleStyle]}>{item.title}</Text>
+							<Text style={[styles.listItemTextStyle, listItemTextStyle]}>{item.text}</Text>
 						</View>
 					)}
 				/>

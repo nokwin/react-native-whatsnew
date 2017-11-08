@@ -26,6 +26,25 @@ const App = () => {
 }
 ```
 
+## Props
+```json
+{
+  "onPress": "Function, that invokes when you press \"Continue\" button",
+  "data": {
+    "title": "Item title. Required field",
+    "text": "Item text. Required field"
+  },
+  "containerStyle": "Main wrapper styles",
+  "titleStyle": "\"What's new\" style",
+  "listStyle": "Main list style",
+  "listItemStyle": "List item style",
+  "listItemTitleStyle": "List item title style",
+  "listItemTextStyle": "List item text style",
+  "buttonStyle": "\"Continue\" button style",
+  "buttonTextStyle": "\"Continue\" text style"
+}
+```
+
 ## Author
 I'm [Dmytro Batarin](https://batarin.zp.ua). 
 Email: [contact@batarin.zp.ua](mailto:contact@batarin.zp.ua).
