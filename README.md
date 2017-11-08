@@ -42,7 +42,9 @@ const App = () => {
   "listItemTextStyle": "List item text style",
   "buttonStyle": "'Continue' button style",
   "buttonTextStyle": "'Continue' text style",
-  "isAnimated": "Allow use animation for all components"
+  "isAnimated": "Allow use animation for all components",
+  "titleText": "Change 'What's new' with your text",
+  "buttonText": "Change 'Continue' on button with your text"
 }
 ```
 
