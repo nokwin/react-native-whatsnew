@@ -53,29 +53,59 @@ export default class WhatsNew extends PureComponent {
 			text: PropTypes.string.isRequired,
 		})).isRequired,
 		onPress: PropTypes.func.isRequired,
+		containerStyle: View.propTypes.style,
+		titleStyle: Text.propTypes.style,
+		listStyle: FlatList.propTypes.style,
+		listItem: View.propTypes.style,
+		listItemTitle: Text.propTypes.style,
+		listItemText: Text.propTypes.style,
+		buttonStyle: View.propTypes.style,
+		buttonTextStyle: Text.propTypes.style
 	};
 
+	static defaultProps = {
+		containerStyle: null,
+		titleStyle: null,
+		listStyle: null,
+		listItem: null,
+		listItemTitle: null,
+		listItemText: null,
+		buttonStyle: null,
+		buttonTextStyle: null
+	}
+
 	render() {
-		const { data, onPress } = this.props;
+		const {
+			data,
+			onPress,
+			containerStyle,
+			titleStyle,
+			listStyle,
+			listItem,
+			listItemTitle,
+			listItemText,
+			buttonStyle,
+			buttonTextStyle
+		} = this.props;
 		const { width, height } = Dimensions.get('window');
 
 		return (
-			<View style={[styles.container, { height }]}>
-				<Text style={styles.titleText}>What&apos;s New</Text>
+			<View style={[styles.container, { height }, containerStyle]}>
+				<Text style={[styles.titleText, titleStyle]}>What&apos;s New</Text>
 				<FlatList
 					data={data}
 					keyExtractor={(__, index) => `feature_${index}`}
-					style={[styles.list, { width, height }]}
+					style={[styles.list, { width, height }, listStyle]}
 					renderItem={({ item }) => (
-						<View style={styles.listItem}>
-							<Text style={styles.listItemTitle}>{item.title}</Text>
-							<Text style={styles.listItemText}>{item.text}</Text>
+						<View style={[styles.listItem, listItem]}>
+							<Text style={[styles.listItemTitle, listItemTitle]}>{item.title}</Text>
+							<Text style={[styles.listItemText, listItemText]}>{item.text}</Text>
 						</View>
 					)}
 				/>
 				<TouchableWithoutFeedback onPress={onPress}>
-					<View style={styles.nextButton}>
-						<Text style={[styles.nextButtonText, { width: width - 32 }]}>Continue</Text>
+					<View style={[styles.nextButton, buttonStyle]}>
+						<Text style={[styles.nextButtonText, { width: width - 32 }, buttonTextStyle]}>Continue</Text>
 					</View>
 				</TouchableWithoutFeedback>
 			</View>
