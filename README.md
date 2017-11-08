@@ -22,7 +22,7 @@ const App = () => {
 		// Handle your action for Continue button
 	};
 	
-	<WhatsNew data={data} onPress={onPress} />
+	return <WhatsNew data={data} onPress={onPress} />
 }
 ```
 
@@ -41,7 +41,8 @@ const App = () => {
   "listItemTitleStyle": "List item title style",
   "listItemTextStyle": "List item text style",
   "buttonStyle": "'Continue' button style",
-  "buttonTextStyle": "'Continue' text style"
+  "buttonTextStyle": "'Continue' text style",
+  "isAnimated": "Allow use animation for all components"
 }
 ```
 

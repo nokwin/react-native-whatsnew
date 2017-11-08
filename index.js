@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, Text, StyleSheet, Dimensions, FlatList, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, FlatList, TouchableWithoutFeedback, Animated } from 'react-native';
 import PropTypes from 'prop-types';
 
 const styles = StyleSheet.create({
@@ -53,14 +53,15 @@ export default class WhatsNew extends PureComponent {
 			title: PropTypes.string.isRequired,
 			text: PropTypes.string.isRequired,
 		})),
-		containerStyle: View.propTypes.style,
-		titleStyle: Text.propTypes.style,
+		containerStyle: Animated.View.propTypes.style,
+		titleStyle: Animated.Text.propTypes.style,
 		listStyle: FlatList.propTypes.style,
-		listItemStyle: View.propTypes.style,
-		listItemTitleStyle: Text.propTypes.style,
-		listItemTextStyle: Text.propTypes.style,
-		buttonStyle: View.propTypes.style,
-		buttonTextStyle: Text.propTypes.style
+		listItemStyle: Animated.View.propTypes.style,
+		listItemTitleStyle: Animated.Text.propTypes.style,
+		listItemTextStyle: Animated.Text.propTypes.style,
+		buttonStyle: Animated.View.propTypes.style,
+		buttonTextStyle: Animated.Text.propTypes.style,
+		isAnimated: PropTypes.bool
 	};
 
 	static defaultProps = {
@@ -72,7 +73,8 @@ export default class WhatsNew extends PureComponent {
 		listItemTitleStyle: null,
 		listItemTextStyle: null,
 		buttonStyle: null,
-		buttonTextStyle: null
+		buttonTextStyle: null,
+		isAnimated: false
 	};
 
 	render() {
@@ -86,30 +88,34 @@ export default class WhatsNew extends PureComponent {
 			listItemTitleStyle,
 			listItemTextStyle,
 			buttonStyle,
-			buttonTextStyle
+			buttonTextStyle,
+			isAnimated
 		} = this.props;
 		const { width, height } = Dimensions.get('window');
 
+		const WNView = isAnimated ? Animated.View : View;
+		const WNText = isAnimated ? Animated.Text : Text;
+
 		return (
-			<View style={[styles.container, { height }, containerStyle]}>
-				<Text style={[styles.titleText, titleStyle]}>What&apos;s New</Text>
+			<WNView style={[styles.container, { height }, containerStyle]}>
+				<WNText style={[styles.titleText, titleStyle]}>What&apos;s New</WNText>
 				<FlatList
 					data={data}
 					keyExtractor={(__, index) => `feature_${index}`}
 					style={[styles.list, { width, height }, listStyle]}
 					renderItem={({ item }) => (
-						<View style={[styles.listItemStyle, listItemStyle]}>
-							<Text style={[styles.listItemTitleStyle, listItemTitleStyle]}>{item.title}</Text>
-							<Text style={[styles.listItemTextStyle, listItemTextStyle]}>{item.text}</Text>
-						</View>
+						<WNView style={[styles.listItemStyle, listItemStyle]}>
+							<WNText style={[styles.listItemTitleStyle, listItemTitleStyle]}>{item.title}</WNText>
+							<WNText style={[styles.listItemTextStyle, listItemTextStyle]}>{item.text}</WNText>
+						</WNView>
 					)}
 				/>
 				<TouchableWithoutFeedback onPress={onPress}>
-					<View style={[styles.nextButton, buttonStyle]}>
-						<Text style={[styles.nextButtonText, { width: width - 32 }, buttonTextStyle]}>Continue</Text>
-					</View>
+					<WNView style={[styles.nextButton, buttonStyle]}>
+						<WNText style={[styles.nextButtonText, { width: width - 32 }, buttonTextStyle]}>Continue</WNText>
+					</WNView>
 				</TouchableWithoutFeedback>
-			</View>
+			</WNView>
 		);
 	}
 }
