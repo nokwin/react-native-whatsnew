@@ -1,4 +1,6 @@
 # react-native-whatsnew
+[![Travis](https://img.shields.io/travis/nokwin/react-native-whatsnew/master.svg)](https://travis-ci.org/nokwin/react-native-whatsnew)
+[![npm](https://img.shields.io/npm/v/react-native-whatsnew.svg)]()
 
 <p align="center"><img src ="example.png" width="300px"/></p>
 
