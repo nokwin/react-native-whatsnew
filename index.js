@@ -55,7 +55,7 @@ export default class WhatsNew extends PureComponent {
 		})),
 		containerStyle: Animated.View.propTypes.style,
 		titleStyle: Animated.Text.propTypes.style,
-		listStyle: FlatList.propTypes.style,
+		listStyle: View.propTypes.style,
 		listItemStyle: Animated.View.propTypes.style,
 		listItemTitleStyle: Animated.Text.propTypes.style,
 		listItemTextStyle: Animated.Text.propTypes.style,
