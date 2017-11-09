@@ -110,9 +110,9 @@ export default class WhatsNew extends PureComponent {
 					keyExtractor={(__, index) => `feature_${index}`}
 					style={[styles.list, { width, height }, listStyle]}
 					renderItem={({ item }) => (
-						<WNView style={[styles.listItemStyle, listItemStyle]}>
-							<WNText style={[styles.listItemTitleStyle, listItemTitleStyle]}>{item.title}</WNText>
-							<WNText style={[styles.listItemTextStyle, listItemTextStyle]}>{item.text}</WNText>
+						<WNView style={[styles.listItem, listItemStyle]}>
+							<WNText style={[styles.listItemTitle, listItemTitleStyle]}>{item.title}</WNText>
+							<WNText style={[styles.listItemText, listItemTextStyle]}>{item.text}</WNText>
 						</WNView>
 					)}
 				/>
